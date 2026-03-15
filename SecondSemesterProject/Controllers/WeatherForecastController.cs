@@ -1,26 +1,47 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 
 namespace SecondSemesterProject.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class WeatherForecastController(IConfiguration configuration, IOptions<MyInfoConfig> myInfoConfig) : ControllerBase
     {
-        private static readonly string[] Summaries =
-        [
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        ];
 
-        [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get()
+        [HttpGet("count")]
+        public int GetTotalPresentCount()
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            int totalStudent = 0;
+            totalStudent = configuration.GetValue<int>("TotalPresent");
+            return totalStudent;
+        }
+
+        [HttpGet("myinfo")]
+        public object GetMyInfo()
+        {
+
+            var info = new
             {
-                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+                Name = configuration["MyInfo:Name"],
+                Age = configuration["MyInfo:Age"],
+                Address = configuration["MyInfo:Address"]
+            };
+
+            return info;
+        }
+
+        [HttpGet("myinfo/v2")]
+        public object GetMyInformationOptionPattern()
+        {
+            var myInfoConfigValue = myInfoConfig.Value;
+
+            var data = new
+            {
+                Name = myInfoConfigValue.Name,
+                Age = myInfoConfigValue.Age,
+                Address = myInfoConfigValue.Address,
+            };
+
+            return data;
         }
     }
 }
