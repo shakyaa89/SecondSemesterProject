@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using SecondSemesterProject.Controllers;
-using SecondSemesterProject.Persistance;
+using SecondSemesterProject.Persistence;
 using SecondSemesterProject.Repositories;
 using SecondSemesterProject.Services;
 

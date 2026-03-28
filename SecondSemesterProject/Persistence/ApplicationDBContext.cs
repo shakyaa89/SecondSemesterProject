@@ -2,7 +2,7 @@
 using SecondSemesterProject.Models;
 
 
-namespace SecondSemesterProject.Persistance
+namespace SecondSemesterProject.Persistence
 
 {
     public class ApplicationDBContext: DbContext

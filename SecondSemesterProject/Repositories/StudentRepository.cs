@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SecondSemesterProject.Models;
-using SecondSemesterProject.Persistance;
+using SecondSemesterProject.Persistence;
 
 namespace SecondSemesterProject.Repositories
 {
