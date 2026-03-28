@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using SecondSemesterProject.Controllers;
 using SecondSemesterProject.Persistance;
+using SecondSemesterProject.Repositories;
+using SecondSemesterProject.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,9 @@ builder.Services.AddOpenApi();
 builder.Services.Configure<MyInfoConfig>(builder.Configuration.GetSection("MyInfo"));
 
 builder.Services.AddDbContext<ApplicationDBContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("Default")));
+
+builder.Services.AddScoped<IStudentRepository, StudentRepository>();
+builder.Services.AddScoped<IStudentService, StudentService>();
 
 var app = builder.Build();
 
