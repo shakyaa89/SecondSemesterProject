@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SecondSemesterProject.DTO;
-using SecondSemesterProject.Models;
-using SecondSemesterProject.Services;
+using SecondSemesterProject.Application.DTO;
+using SecondSemesterProject.Application.Interfaces.IService;
+using SecondSemesterProject.Domain.Models;
 
 namespace SecondSemesterProject.Controllers
 {

@@ -1,3 +1,6 @@
 <Solution>
+  <Project Path="SecondSemesterProject.Application/SecondSemesterProject.Application.csproj" Id="6a11ba86-f0e8-4806-b829-2794d7f8f167" />
+  <Project Path="SecondSemesterProject.Domain/SecondSemesterProject.Domain.csproj" Id="cb2320f1-c434-4184-bd54-40e86f8ffaf6" />
+  <Project Path="SecondSemesterProject.Infrastructure/SecondSemesterProject.Infrastructure.csproj" Id="c557f119-6537-49d6-aa75-c1ea2912c94f" />
   <Project Path="SecondSemesterProject/SecondSemesterProject.csproj" />
 </Solution>
